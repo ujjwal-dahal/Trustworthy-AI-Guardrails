@@ -1,0 +1,97 @@
+{
+  "input_pii": {
+    "label": "Input: PII detection",
+    "cases": 12,
+    "passed": 10,
+    "tp": 8,
+    "fp": 1,
+    "fn": 1,
+    "tn": 2,
+    "precision": 0.8888888888888888,
+    "recall": 0.8888888888888888,
+    "f1": 0.8888888888888888
+  },
+  "input_injection": {
+    "label": "Input: Prompt-injection",
+    "cases": 16,
+    "passed": 13,
+    "tp": 10,
+    "fp": 1,
+    "fn": 2,
+    "tn": 3,
+    "precision": 0.9090909090909091,
+    "recall": 0.8333333333333334,
+    "f1": 0.8695652173913043
+  },
+  "input_topic": {
+    "label": "Input: Sensitive-topic",
+    "cases": 12,
+    "passed": 10,
+    "tp": 8,
+    "fp": 1,
+    "fn": 1,
+    "tn": 2,
+    "precision": 0.8888888888888888,
+    "recall": 0.8888888888888888,
+    "f1": 0.8888888888888888
+  },
+  "output_schema": {
+    "label": "Output: Schema validation",
+    "cases": 12,
+    "passed": 12,
+    "tp": 10,
+    "fp": 0,
+    "fn": 0,
+    "tn": 2,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "output_grounded": {
+    "label": "Output: Groundedness",
+    "cases": 10,
+    "passed": 8,
+    "tp": 4,
+    "fp": 0,
+    "fn": 2,
+    "tn": 4,
+    "precision": 1.0,
+    "recall": 0.6666666666666666,
+    "f1": 0.8
+  },
+  "output_sensitive": {
+    "label": "Output: Sensitive-info",
+    "cases": 11,
+    "passed": 10,
+    "tp": 7,
+    "fp": 0,
+    "fn": 1,
+    "tn": 3,
+    "precision": 1.0,
+    "recall": 0.875,
+    "f1": 0.9333333333333333
+  },
+  "overall_guardrails": {
+    "label": "All 6 guardrails (unit level)",
+    "tp": 47,
+    "fp": 3,
+    "fn": 7,
+    "tn": 16,
+    "precision": 0.94,
+    "recall": 0.8703703703703703,
+    "f1": 0.9038461538461539
+  },
+  "e2e": {
+    "label": "End-to-end pipeline",
+    "cases": 12,
+    "passed": 12
+  },
+  "summary": {
+    "total_cases": 85,
+    "passed": 75,
+    "failed": 10,
+    "failed_known": 10,
+    "failed_unexpected": 0,
+    "known_but_passed": 0
+  }
+}

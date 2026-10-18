@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 1030" width="980" height="1030" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#333"/></marker></defs>
+<rect width="980" height="1030" fill="#ffffff"/>
+<text x="490.0" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b1b1f">Mero Bank Assistant - Guardrail Architecture</text>
+<rect x="390" y="52" width="200" height="42" rx="8" fill="#f1f3f5" stroke="#495057" stroke-width="1.5"/>
+<text x="490.0" y="78.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">User message</text>
+<line x1="490" y1="94" x2="490" y2="124" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="40" y="124" width="900" height="232" rx="12" fill="none" stroke="#2b8a3e" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="54" y="146" font-size="13" font-weight="700" fill="#2b8a3e">INPUT GUARDRAILS (InputGuard)</text>
+<rect x="70" y="160" width="260" height="84" rx="8" fill="#ebfbee" stroke="#2b8a3e" stroke-width="1.5"/>
+<text x="200.0" y="200.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">1. PII Detector</text>
+<text x="200.0" y="219.0" text-anchor="middle" font-size="11.5" fill="#444">regex + Luhn + keyword context -> REDACT</text>
+<rect x="360" y="160" width="260" height="84" rx="8" fill="#ebfbee" stroke="#2b8a3e" stroke-width="1.5"/>
+<text x="490.0" y="200.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">2. Prompt-Injection Detector</text>
+<text x="490.0" y="219.0" text-anchor="middle" font-size="11.5" fill="#444">weighted rules, noisy-OR score -> BLOCK</text>
+<rect x="650" y="160" width="260" height="84" rx="8" fill="#ebfbee" stroke="#2b8a3e" stroke-width="1.5"/>
+<text x="780.0" y="200.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">3. Sensitive-Topic Classifier</text>
+<text x="780.0" y="219.0" text-anchor="middle" font-size="11.5" fill="#444">6 categories, per-category action</text>
+<line x1="200" y1="244" x2="400" y2="290" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="490" y1="244" x2="490" y2="290" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="780" y1="244" x2="580" y2="290" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="310" y="290" width="360" height="50" rx="8" fill="#d3f9d8" stroke="#2b8a3e" stroke-width="1.5"/>
+<text x="490.0" y="313.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">Decision router (precedence)</text>
+<text x="490.0" y="332.0" text-anchor="middle" font-size="11.5" fill="#444">self-harm > injection > topic action > allow</text>
+<line x1="670" y1="315" x2="735" y2="395" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="700" y="372" font-size="11.5" fill="#333">terminal action</text>
+<rect x="640" y="395" width="300" height="86" rx="8" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.5"/>
+<text x="790.0" y="436.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">Canned responses (LLM call nahune)</text>
+<text x="790.0" y="455.0" text-anchor="middle" font-size="11.5" fill="#444">BLOCK_INJECTION | REFUSE | ESCALATE_CRISIS</text>
+<text x="790" y="470" text-anchor="middle" font-size="11.5" fill="#444">HUMAN_HANDOFF | INVALID_INPUT</text>
+<line x1="400" y1="340" x2="250" y2="395" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="90" y="378" font-size="11.5" fill="#333">sanitized text (PII redacted)</text>
+<rect x="100" y="395" width="300" height="50" rx="8" fill="#fff9db" stroke="#e67700" stroke-width="1.5"/>
+<text x="250.0" y="418.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">Retriever (Knowledge Base)</text>
+<text x="250.0" y="437.0" text-anchor="middle" font-size="11.5" fill="#444">keyword overlap, top-2 docs</text>
+<line x1="250" y1="445" x2="250" y2="485" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="100" y="485" width="300" height="50" rx="8" fill="#f3f0ff" stroke="#6741d9" stroke-width="1.5"/>
+<text x="250.0" y="508.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">LLM (Mock / Scripted / Anthropic)</text>
+<text x="250.0" y="527.0" text-anchor="middle" font-size="11.5" fill="#444">returns raw JSON text</text>
+<line x1="250" y1="535" x2="250" y2="580" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="40" y="575" width="900" height="232" rx="12" fill="none" stroke="#1971c2" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="54" y="597" font-size="13" font-weight="700" fill="#1971c2">OUTPUT GUARDRAILS (OutputGuard)</text>
+<rect x="70" y="612" width="260" height="84" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<text x="200.0" y="652.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">1. Schema Validator</text>
+<text x="200.0" y="671.0" text-anchor="middle" font-size="11.5" fill="#444">types, enums, ranges, extra fields</text>
+<rect x="360" y="612" width="260" height="84" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<text x="490.0" y="652.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">2. Sensitive-Info Detector</text>
+<text x="490.0" y="671.0" text-anchor="middle" font-size="11.5" fill="#444">PII/secret/canary/prompt-leak/confidential</text>
+<rect x="650" y="612" width="260" height="84" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<text x="780.0" y="652.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">3. Groundedness Validator</text>
+<text x="780.0" y="671.0" text-anchor="middle" font-size="11.5" fill="#444">claim support + numbers + citations</text>
+<line x1="330" y1="654" x2="358" y2="654" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="620" y1="654" x2="648" y2="654" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="490" y1="696" x2="490" y2="730" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="310" y="730" width="360" height="50" rx="8" fill="#d0ebff" stroke="#1971c2" stroke-width="1.5"/>
+<text x="490.0" y="753.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">Output decision</text>
+<text x="490.0" y="772.0" text-anchor="middle" font-size="11.5" fill="#444">PASS | REDACTED | REJECTED</text>
+<text x="190" y="728" font-size="11" fill="#444">PII only -> redact, then continue</text>
+<line x1="400" y1="765" x2="230" y2="840" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="235" y="815" font-size="11.5" fill="#333">PASS / REDACTED</text>
+<rect x="100" y="840" width="260" height="56" rx="8" fill="#ebfbee" stroke="#2b8a3e" stroke-width="1.5"/>
+<text x="230.0" y="873.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">Final response (+ sources, disclaimer)</text>
+<line x1="670" y1="765" x2="800" y2="840" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="760" y="812" font-size="11.5" fill="#333">REJECTED</text>
+<rect x="660" y="840" width="260" height="56" rx="8" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.5"/>
+<text x="790.0" y="866.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">Safe fallback message</text>
+<text x="790.0" y="885.0" text-anchor="middle" font-size="11.5" fill="#444">after retries exhausted</text>
+<line x1="490" y1="780" x2="490" y2="868" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="400" y="825" font-size="11.5" fill="#333">REJECTED (retry &lt; max)</text>
+<rect x="380" y="868" width="220" height="50" rx="8" fill="#fff9db" stroke="#e67700" stroke-width="1.5"/>
+<text x="490.0" y="891.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">Regenerate (strict prompt)</text>
+<text x="490.0" y="910.0" text-anchor="middle" font-size="11.5" fill="#444">MAX_REGENERATIONS = 1</text>
+<path d="M 380 893 C 20 893, 20 510, 98 510" fill="none" stroke="#333" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+<text x="24" y="700" font-size="11.5" fill="#333">retry</text>
+<line x1="230" y1="896" x2="440" y2="956" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="790" y1="896" x2="540" y2="956" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="390" y="956" width="200" height="40" rx="8" fill="#f1f3f5" stroke="#495057" stroke-width="1.5"/>
+<text x="490.0" y="981.0" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1b1f">User</text>
+<text x="10" y="1020" font-size="10.5" fill="#666">Logs/trace ma raw PII ra raw LLM output store hudaina - sanitized text + decision reasons matra.</text>
+</svg>

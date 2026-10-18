@@ -1,0 +1,3 @@
+# Core guardrails: Python 3.10+ standard library matra - kehi install garnu pardaina.
+# Optional (real LLM use garna):
+# anthropic>=0.40

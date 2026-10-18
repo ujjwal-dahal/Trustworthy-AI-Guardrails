@@ -1,0 +1,18 @@
+[
+  {"id": "KB-001", "title": "Savings Account", "category": "account",
+   "text": "A Mero Bank savings account requires a minimum balance of NPR 1,000. Interest of 4% per annum is paid quarterly. Customers can open an account at any branch after completing KYC. A cheque book is issued free of charge for the first 25 leaves."},
+  {"id": "KB-002", "title": "Debit Card", "category": "card",
+   "text": "The Mero Bank debit card has an annual fee of NPR 500. The daily ATM withdrawal limit is NPR 50,000. If the card is lost, call the 24-hour hotline at 01-4123456 to block it immediately. A replacement card is issued within 7 working days."},
+  {"id": "KB-003", "title": "Home Loan", "category": "loan",
+   "text": "Mero Bank home loans carry an interest rate of 9.5% per annum. The bank finances up to 80% of the property value. The maximum loan tenure is 20 years. A processing fee of 1% of the loan amount is charged."},
+  {"id": "KB-004", "title": "Remittance", "category": "remittance",
+   "text": "Mero Bank receives remittances through its partner agents. Remittance funds are credited to the account within 24 hours. There is no charge for receiving remittance into a Mero Bank account."},
+  {"id": "KB-005", "title": "Mobile Banking", "category": "account",
+   "text": "Customers can reset the mobile banking password using the Forgot Password option in the app. A one-time password is sent to the registered mobile number. Mero Bank never asks for your OTP, PIN or password by phone, SMS or email."},
+  {"id": "KB-006", "title": "Fixed Deposit", "category": "account",
+   "text": "The minimum fixed deposit amount is NPR 10,000. A 6-month fixed deposit earns 7% per annum and a 12-month fixed deposit earns 8% per annum. Premature withdrawal reduces the interest rate by 1 percentage point."},
+  {"id": "KB-007", "title": "KYC Requirements", "category": "account",
+   "text": "To open an account, customers must submit a completed KYC form. A citizenship certificate or national ID and two passport-size photos are required. Businesses must also provide a PAN registration certificate. Account opening usually takes one working day."},
+  {"id": "KB-008", "title": "Branch Hours and Contact", "category": "general",
+   "text": "Mero Bank branches are open Sunday to Friday from 10:00 AM to 4:00 PM. Branches are closed on Saturdays and public holidays. Customers can email support@merobank.com.np or call 01-4123456."}
+]
